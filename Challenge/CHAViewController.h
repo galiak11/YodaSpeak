@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHAViewController : UIViewController
+@interface CHAViewController : UIViewController <UITextViewDelegate>
 
 @end

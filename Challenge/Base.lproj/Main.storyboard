@@ -67,7 +67,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="You will learn how to speak like me someday. Oh wait." translatesAutoresizingMaskIntoConstraints="NO" id="INJ-0P-eMw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INJ-0P-eMw">
                                 <rect key="frame" x="20" y="336" width="280" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.8627451062" green="0.8627451062" blue="0.8627451062" alpha="1" colorSpace="calibratedRGB"/>

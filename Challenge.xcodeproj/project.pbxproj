@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D3FD0661928451C009DB31F /* CHATranslationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3FD0651928451C009DB31F /* CHATranslationManager.m */; };
 		6DC937BC19282C090019A217 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC937BB19282C090019A217 /* Foundation.framework */; };
 		6DC937BE19282C090019A217 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC937BD19282C090019A217 /* CoreGraphics.framework */; };
 		6DC937C019282C090019A217 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC937BF19282C090019A217 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D3FD0641928451C009DB31F /* CHATranslationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHATranslationManager.h; sourceTree = "<group>"; };
+		6D3FD0651928451C009DB31F /* CHATranslationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHATranslationManager.m; sourceTree = "<group>"; };
 		6DC937B819282C090019A217 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC937BB19282C090019A217 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6DC937BD19282C090019A217 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,11 +115,13 @@
 		6DC937C119282C090019A217 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				6DC937CA19282C090019A217 /* CHAAppDelegate.h */,
-				6DC937CB19282C090019A217 /* CHAAppDelegate.m */,
 				6DC937CD19282C090019A217 /* Main.storyboard */,
+				6D3FD0641928451C009DB31F /* CHATranslationManager.h */,
+				6D3FD0651928451C009DB31F /* CHATranslationManager.m */,
 				6DC937D019282C090019A217 /* CHAViewController.h */,
 				6DC937D119282C090019A217 /* CHAViewController.m */,
+				6DC937CA19282C090019A217 /* CHAAppDelegate.h */,
+				6DC937CB19282C090019A217 /* CHAAppDelegate.m */,
 				6DC937D319282C090019A217 /* Images.xcassets */,
 				6DC937C219282C090019A217 /* Supporting Files */,
 			);
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3FD0661928451C009DB31F /* CHATranslationManager.m in Sources */,
 				6DC937C819282C090019A217 /* main.m in Sources */,
 				6DC937D219282C090019A217 /* CHAViewController.m in Sources */,
 				6DC937CC19282C090019A217 /* CHAAppDelegate.m in Sources */,
