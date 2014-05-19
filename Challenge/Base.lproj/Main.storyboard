@@ -17,36 +17,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0e-RI-tg6">
-                                <rect key="frame" x="40" y="286" width="202" height="30"/>
+                                <rect key="frame" x="50" y="275" width="220" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36247668944372236" green="0.40061123044507596" blue="0.51544744318181812" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Jqv-vE-3hN"/>
-                                    <constraint firstAttribute="width" constant="202" id="tAV-xV-kof"/>
+                                    <constraint firstAttribute="width" constant="220" id="tAV-xV-kof"/>
                                 </constraints>
-                                <state key="normal" title="Yoda Speak">
+                                <state key="normal" title="Speak">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="speakButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Zx-V4-A72"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmI-Nm-3DK">
-                                <rect key="frame" x="250" y="286" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36247668944372236" green="0.40061123044507596" blue="0.51544744318181812" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7DD-WT-RNf"/>
-                                    <constraint firstAttribute="width" constant="30" id="Nbu-pV-Qmx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="...">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SmT-H3-1Y8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Text:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffk-uZ-tan">
@@ -60,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="You will learn how to speak like me someday. Oh wait." translatesAutoresizingMaskIntoConstraints="NO" id="k7N-LY-0LM">
-                                <rect key="frame" x="20" y="74" width="280" height="192"/>
+                                <rect key="frame" x="20" y="72" width="280" height="183"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.8627451062" green="0.8627451062" blue="0.8627451062" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.15285240230763095" green="0.1898804841571797" blue="0.33149857954545459" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,7 +51,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INJ-0P-eMw">
-                                <rect key="frame" x="20" y="336" width="280" height="192"/>
+                                <rect key="frame" x="20" y="325" width="280" height="183"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.8627451062" green="0.8627451062" blue="0.8627451062" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.8627451062" green="0.8627451062" blue="0.8627451062" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,23 +67,18 @@
                             <constraint firstItem="Ffk-uZ-tan" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="DUK-02-5ym"/>
                             <constraint firstItem="Ffk-uZ-tan" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="HBA-4B-EDa"/>
                             <constraint firstAttribute="trailing" secondItem="k7N-LY-0LM" secondAttribute="trailing" constant="20" id="IZ4-cd-ful"/>
-                            <constraint firstItem="bmI-Nm-3DK" firstAttribute="leading" secondItem="K0e-RI-tg6" secondAttribute="trailing" constant="8" id="Ozx-v9-fBi"/>
-                            <constraint firstItem="INJ-0P-eMw" firstAttribute="top" secondItem="bmI-Nm-3DK" secondAttribute="bottom" constant="20" id="Q5S-PP-aqT"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="INJ-0P-eMw" secondAttribute="bottom" constant="40" id="ZbK-RP-TkB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="INJ-0P-eMw" secondAttribute="bottom" constant="60" id="ZbK-RP-TkB"/>
                             <constraint firstAttribute="trailing" secondItem="INJ-0P-eMw" secondAttribute="trailing" constant="20" id="aVk-Ac-AuQ"/>
                             <constraint firstAttribute="trailing" secondItem="Ffk-uZ-tan" secondAttribute="trailing" constant="20" id="aY1-hr-EyH"/>
                             <constraint firstItem="INJ-0P-eMw" firstAttribute="top" secondItem="K0e-RI-tg6" secondAttribute="bottom" constant="20" id="by8-mB-80w"/>
+                            <constraint firstAttribute="centerX" secondItem="K0e-RI-tg6" secondAttribute="centerX" id="fce-Q8-x4H"/>
                             <constraint firstItem="k7N-LY-0LM" firstAttribute="height" secondItem="INJ-0P-eMw" secondAttribute="height" id="flr-k9-kQE"/>
-                            <constraint firstItem="bmI-Nm-3DK" firstAttribute="top" secondItem="k7N-LY-0LM" secondAttribute="bottom" constant="20" id="iC3-XS-dCS"/>
-                            <constraint firstItem="k7N-LY-0LM" firstAttribute="top" secondItem="Ffk-uZ-tan" secondAttribute="bottom" constant="6" id="kjn-Y8-6n7"/>
+                            <constraint firstItem="k7N-LY-0LM" firstAttribute="top" secondItem="Ffk-uZ-tan" secondAttribute="bottom" constant="4" id="kjn-Y8-6n7"/>
                             <constraint firstItem="K0e-RI-tg6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="40" id="klU-9T-ED1"/>
-                            <constraint firstItem="bmI-Nm-3DK" firstAttribute="leading" secondItem="K0e-RI-tg6" secondAttribute="trailing" constant="8" id="nUV-FL-dwO"/>
-                            <constraint firstItem="K0e-RI-tg6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="40" id="wdg-hL-i4f"/>
                             <constraint firstItem="k7N-LY-0LM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="wy2-82-t7w"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="selectLanguageButton" destination="bmI-Nm-3DK" id="s0U-hr-xp9"/>
                         <outlet property="speakButton" destination="K0e-RI-tg6" id="XrQ-KE-eGe"/>
                         <outlet property="translatedTextView" destination="INJ-0P-eMw" id="xx5-wB-REM"/>
                         <outlet property="userTextView" destination="k7N-LY-0LM" id="ei2-un-Jpc"/>
