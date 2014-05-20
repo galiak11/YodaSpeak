@@ -10,4 +10,10 @@
 
 @interface CHAViewController : UIViewController <UITextViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *speakButton;
+@property (weak, nonatomic) IBOutlet UITextView *userTextView;
+@property (weak, nonatomic) IBOutlet UITextView *translatedTextView;
+
+- (IBAction)speakButtonTouched:(id)sender;
+
 @end

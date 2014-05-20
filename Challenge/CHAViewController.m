@@ -17,10 +17,6 @@
 
 @property (strong, nonatomic) NSString *textBeforeEdit;
 
-@property (weak, nonatomic) IBOutlet UIButton *speakButton;
-@property (weak, nonatomic) IBOutlet UITextView *userTextView;
-@property (weak, nonatomic) IBOutlet UITextView *translatedTextView;
-
 @end
 
 @implementation CHAViewController

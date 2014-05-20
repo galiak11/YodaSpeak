@@ -19,8 +19,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.currentLanguage = CHALanguageYoda;
-        self.httpRequest = [[CHATranslationRequest alloc] initWithLanguage:self.currentLanguage];
+        // for now we support a single language - so we can initialize it here with a constant
+        self.httpRequest = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageYoda];
     }
     return self;
 }
@@ -38,14 +38,9 @@
     return sharedTranslationManager;
 }
 
-#pragma mark - translation (synchronous requests)
+#pragma mark - translation
 
 - (NSString *)translate:(NSString *)text {
-    
-    return [self translate:text to:self.currentLanguage];
-}
-
-- (NSString *)translate:(NSString *)text to:(CHALanguages)language {
     
     if (!self.httpRequest)
         return @"Language not supported";
@@ -53,14 +48,7 @@
         return [self.httpRequest translate:text];
 }
 
-#pragma mark - translation (asynchronous requests)
-
 - (void)translate:(NSString *)text result:(CHAStringResultBlock)resultBlock {
-    
-    [self translate:text to:self.currentLanguage result:resultBlock];
-}
-
-- (void)translate:(NSString *)text to:(CHALanguages)language result:(CHAStringResultBlock)resultBlock {
     
     if (!self.httpRequest)
         resultBlock(@"Language not supported");
@@ -68,11 +56,9 @@
         [self.httpRequest translate:text result:resultBlock];
 }
 
-#pragma mark - language selection
-
 - (NSString *)currentLanguageName
 {
-    return [CHATranslationRequest nameForLanguage:self.currentLanguage];
+    return [self.httpRequest languageName];
 }
 
 @end

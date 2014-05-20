@@ -22,17 +22,17 @@ typedef void (^CHAStringResultBlock)(NSString* string);
 
 @interface CHATranslationRequest : NSObject
 
+// a string representation of current language
+@property (strong, nonatomic, readonly) NSString *languageName;
+
 // initialize the request with a specific language
 - (id)initWithLanguage:(CHALanguages)language;
 
-// synchronous request to translate text (results is returned as a method return value)
+// synchronous request to translate text (result is returned as a method return value)
 - (NSString *)translate:(NSString *)text;
 
 // asyncronous request to translate text (result is returned as a block parameter)
 // note: we only handle string results, for now...
 - (void)translate:(NSString *)text result:(CHAStringResultBlock)resultBlock;
-
-// returns given language as a string
-+ (NSString *)nameForLanguage:(CHALanguages)language;
 
 @end

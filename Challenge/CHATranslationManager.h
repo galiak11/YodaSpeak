@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CHATranslationRequest.h"
 
-@interface CHATranslationManager : CHATranslationRequest
+@interface CHATranslationManager : NSObject
 
-@property (nonatomic) CHALanguages currentLanguage;
 @property (strong, nonatomic, readonly) NSString *currentLanguageName;
 
 // returns a TranslationManager singleton

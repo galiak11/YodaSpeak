@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CHATranslationRequest.h"
+#import "CHATranslationManager.h"
 
 @interface ChallengeTests : XCTestCase
 
@@ -14,21 +16,40 @@
 
 @implementation ChallengeTests
 
-- (void)setUp
+#pragma mark - testing TranslationRequest
+
+- (void)testTranslationRequestInitializedWithUnsupportedLanguageShouldBeNull
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    CHATranslationRequest *sut = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageLeet];
+    
+    XCTAssertNil(sut, @"TranslationRequest initialized with nnsupported language does not return nil");
 }
 
-- (void)tearDown
+- (void)testTranslationRequestInitializedWithSupportedLanguageShouldHaveCorrectLanguageName
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+    CHATranslationRequest *sut = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageYoda];
+    
+    XCTAssertTrue([[sut languageName] isEqualToString:@"YODA"], @"TranslationRequest does not return correct language name");
+    
 }
 
-- (void)testExample
+
+#pragma mark - testing TranslationManager
+
+- (void)testTranslationManagerIsASinglton
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    CHATranslationManager *sut = [CHATranslationManager sharedManager];
+    
+    XCTAssertEqualObjects(sut, [CHATranslationManager sharedManager], @"TranslationManager is not a singlton: different objects are returned each call to sharedManager.");
 }
+
+- (void)testTranslationManagerShouldReturnCurrentLanguageName
+{
+
+    NSString *languageName = [[CHATranslationManager sharedManager] currentLanguageName];
+    
+    XCTAssertTrue([languageName isEqualToString:@"YODA"], @"TranslationManager does not return correct languag name");
+}
+
 
 @end

@@ -20,6 +20,10 @@ NSString * const languageNames[] = {
 
 // private properties
 @interface CHATranslationRequest()
+
+// the language this request has been initialized with
+@property (nonatomic) CHALanguages currentLanguage;
+
 @property (strong, nonatomic) UNIUrlConnection* activeConnection;
 @property (strong, nonatomic) NSDictionary *headers;
 @property (strong, nonatomic) NSDictionary *parameters;
@@ -36,6 +40,7 @@ NSString * const languageNames[] = {
     if (self = [self init]) {
         
         // setup language defaults
+        self.currentLanguage = language;
         
         switch (language) {
             case CHALanguageYoda:
@@ -44,7 +49,7 @@ NSString * const languageNames[] = {
                 
             default:
                 // the request cannot be initialized - return nil
-                NSLog(@"Error: language not supported: %@", [CHATranslationRequest nameForLanguage:language]);
+                NSLog(@"Error: language not supported: %@", [self languageName]);
                 self = nil;
                 break;
         }
@@ -88,9 +93,10 @@ NSString * const languageNames[] = {
     return [self makeRequestWithUrl:url result:resultBlock];
 }
 
-+ (NSString *)nameForLanguage:(CHALanguages)language
+// returns a string representation of current language
+- (NSString *)languageName
 {
-    return languageNames[language];
+    return languageNames[self.currentLanguage];
 }
 
 
