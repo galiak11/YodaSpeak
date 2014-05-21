@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6B79FD2A63934DF4BD12D169 /* libPods-Challenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FACD2104B71E412ABD6D7CBB /* libPods-Challenge.a */; };
-		6D3FD0661928451C009DB31F /* CHATranslationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3FD0651928451C009DB31F /* CHATranslationManager.m */; };
 		6D3FD0691928EBC2009DB31F /* CHATranslationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3FD0681928EBC2009DB31F /* CHATranslationRequest.m */; };
+		6D7192DE192CD78600089892 /* CHAYodaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7192DD192CD78600089892 /* CHAYodaRequest.m */; };
 		6DBADF45192BBC6400AE5D47 /* CHAChallengeServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBADF44192BBC6400AE5D47 /* CHAChallengeServiceTests.m */; };
 		6DBADF47192BC6B200AE5D47 /* CHAChallengeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBADF46192BC6B200AE5D47 /* CHAChallengeViewControllerTests.m */; };
 		6DBADF48192BD6EF00AE5D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DC937CD19282C090019A217 /* Main.storyboard */; };
@@ -42,10 +42,10 @@
 
 /* Begin PBXFileReference section */
 		63BFA98B80B1467AAF8B8ACF /* libPods-ChallengeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChallengeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D3FD0641928451C009DB31F /* CHATranslationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHATranslationManager.h; sourceTree = "<group>"; };
-		6D3FD0651928451C009DB31F /* CHATranslationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHATranslationManager.m; sourceTree = "<group>"; };
 		6D3FD0671928EBC2009DB31F /* CHATranslationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHATranslationRequest.h; sourceTree = "<group>"; };
 		6D3FD0681928EBC2009DB31F /* CHATranslationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHATranslationRequest.m; sourceTree = "<group>"; };
+		6D7192DC192CD78600089892 /* CHAYodaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAYodaRequest.h; sourceTree = "<group>"; };
+		6D7192DD192CD78600089892 /* CHAYodaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAYodaRequest.m; sourceTree = "<group>"; };
 		6DBADF44192BBC6400AE5D47 /* CHAChallengeServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAChallengeServiceTests.m; sourceTree = "<group>"; };
 		6DBADF46192BC6B200AE5D47 /* CHAChallengeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAChallengeViewControllerTests.m; sourceTree = "<group>"; };
 		6DC937B819282C090019A217 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +138,8 @@
 				6DC937CD19282C090019A217 /* Main.storyboard */,
 				6D3FD0671928EBC2009DB31F /* CHATranslationRequest.h */,
 				6D3FD0681928EBC2009DB31F /* CHATranslationRequest.m */,
-				6D3FD0641928451C009DB31F /* CHATranslationManager.h */,
-				6D3FD0651928451C009DB31F /* CHATranslationManager.m */,
+				6D7192DC192CD78600089892 /* CHAYodaRequest.h */,
+				6D7192DD192CD78600089892 /* CHAYodaRequest.m */,
 				6DC937D019282C090019A217 /* CHAViewController.h */,
 				6DC937D119282C090019A217 /* CHAViewController.m */,
 				6DC937CA19282C090019A217 /* CHAAppDelegate.h */,
@@ -346,11 +346,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D3FD0661928451C009DB31F /* CHATranslationManager.m in Sources */,
 				6D3FD0691928EBC2009DB31F /* CHATranslationRequest.m in Sources */,
 				6DC937C819282C090019A217 /* main.m in Sources */,
 				6DC937D219282C090019A217 /* CHAViewController.m in Sources */,
 				6DC937CC19282C090019A217 /* CHAAppDelegate.m in Sources */,
+				6D7192DE192CD78600089892 /* CHAYodaRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

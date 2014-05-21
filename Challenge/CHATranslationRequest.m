@@ -6,64 +6,53 @@
 //
 //
 
+#define BaseClass_protected
 #import "CHATranslationRequest.h"
 #import <UNIRest.h>
-
-#define YODA_SERVICE_URL @"https://yoda.p.mashape.com/yoda"
-#define YODA_HEADER_AUTHORIZATION_ATTRIBUTE @"X-Mashape-Authorization"
-#define YODA_HEADER_AUTHORIZATION_KEY @"FF6gbWPr3vrMO5qZcupdN7XE6lQNB3wh"
-
-NSString * const languageNames[] = {
-    @"YODA",
-    @"LEET"
-};
 
 // private properties
 @interface CHATranslationRequest()
 
-// the language this request has been initialized with
-@property (nonatomic) CHALanguages currentLanguage;
-
 @property (strong, nonatomic) UNIUrlConnection* activeConnection;
-@property (strong, nonatomic) NSDictionary *headers;
-@property (strong, nonatomic) NSDictionary *parameters;
-@property (strong, nonatomic) NSString *urlFormat;
+
 @end
 
+//
+// This class must be subclassed with a specific language implementations.
+//
+// Subclasses must override the following methods:
+//
+//        - (id)initRequest
+//
+//              initializes the request for a specific language and returns self (or nil if invalid)
+//              The specific implementation must initialize the protected request properties (headers, parameters, urlFormat, ...)
+//
+//        - (NSString *)languageName
+//
+//              returns a string representation of subclass' language
+//
+//
 
 @implementation CHATranslationRequest
 
 #pragma mark - initialization
 
-- (id)initWithLanguage:(CHALanguages)language
+- (id)init
 {
-    if (self = [self init]) {
-        
+    if (self = [super init])
+    {
         // setup language defaults
-        self.currentLanguage = language;
-        
-        switch (language) {
-            case CHALanguageYoda:
-                [self setupYoda];
-                break;
-                
-            default:
-                // the request cannot be initialized - return nil
-                NSLog(@"Error: language not supported: %@", [self languageName]);
-                self = nil;
-                break;
-        }
+        self = [self initRequest];
     }
     return self;
 }
 
-- (void)setupYoda
+// initializes the request for a specific language and returns self (or nil if invalid)
+- (id)initRequest
 {
-    self.headers = @{YODA_HEADER_AUTHORIZATION_ATTRIBUTE: YODA_HEADER_AUTHORIZATION_KEY};
-    self.parameters = @{};
-
-    // assumin only one url parameter, for now...
-    self.urlFormat = [NSString stringWithFormat:@"%@?sentence=%@", YODA_SERVICE_URL, @"%@"];
+    // must be overriden by subclass!
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 #pragma mark - translation
@@ -96,7 +85,9 @@ NSString * const languageNames[] = {
 // returns a string representation of current language
 - (NSString *)languageName
 {
-    return languageNames[self.currentLanguage];
+    // must be overriden by subclass!
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 
@@ -158,19 +149,27 @@ NSString * const languageNames[] = {
 
 // responses from yoda.p.mashape.com are typically strings. Errors are sent as JSONs.
 // returns the response "as is" if it's a plain string, or nil if there's an error.
-- (NSString *)parseResponse:(UNIHTTPStringResponse *)stringResponse
+- (NSString *)parseResponse:(UNIHTTPStringResponse *)response
 {
-    if (!stringResponse)
+    if (!response)
         return nil;
     
     NSError *error;
-    NSDictionary *translationResult = [NSJSONSerialization JSONObjectWithData:[stringResponse rawBody] options: 0 error: &error];
+    NSDictionary *translationResult = [NSJSONSerialization JSONObjectWithData:[response rawBody] options: 0 error: &error];
     
     // if the string-response converts to a valid JSON, we can assume there was an error....
     if (translationResult)
-        NSLog(@"Request Error: %@",[stringResponse body]);
+        NSLog(@"Request Error: %@",[response body]);
     
-    return translationResult ? nil : [stringResponse body];
+    NSString *stringResponse = [response body];
+    NSRange range = [stringResponse rangeOfString:@"html"];
+    if (range.location != NSNotFound)
+    {
+        NSLog(@"HTML RESPONSE!!!");
+        NSLog(@"%@", stringResponse);
+    }
+    
+    return translationResult ? nil : stringResponse;
 }
 
 @end

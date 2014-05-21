@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "CHATranslationRequest.h"
-#import "CHATranslationManager.h"
+#import "CHAYodaRequest.h"
 
 @interface ChallengeTests : XCTestCase
 
@@ -18,37 +18,28 @@
 
 #pragma mark - testing TranslationRequest
 
-- (void)testTranslationRequestInitializedWithUnsupportedLanguageShouldBeNull
+- (void)testTranslationRequestShouldFailToInitializeWhenNotSubclassed
 {
-    CHATranslationRequest *sut = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageLeet];
-    
-    XCTAssertNil(sut, @"TranslationRequest initialized with nnsupported language does not return nil");
+    XCTAssertThrows([[CHATranslationRequest alloc] init], @"TranslationRequest must be subclassed");
 }
 
-- (void)testTranslationRequestInitializedWithSupportedLanguageShouldHaveCorrectLanguageName
+#pragma mark - testing YodaRequest
+
+- (void)testYodaRequestShouldInitialize
 {
-    CHATranslationRequest *sut = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageYoda];
+    CHAYodaRequest *sut;
+    XCTAssertNoThrow((sut = [[CHAYodaRequest alloc] init]), @"YodaRequest must override required methods");
     
-    XCTAssertTrue([[sut languageName] isEqualToString:@"YODA"], @"TranslationRequest does not return correct language name");
-    
+    XCTAssertNotNil(sut, @"YodaRequest failed to initialize");
 }
 
-
-#pragma mark - testing TranslationManager
-
-- (void)testTranslationManagerIsASinglton
+- (void)testYodaRequestShouldOverrideLanguageName
 {
-    CHATranslationManager *sut = [CHATranslationManager sharedManager];
+    CHAYodaRequest *sut = [[CHAYodaRequest alloc] init];
     
-    XCTAssertEqualObjects(sut, [CHATranslationManager sharedManager], @"TranslationManager is not a singlton: different objects are returned each call to sharedManager.");
-}
-
-- (void)testTranslationManagerShouldReturnCurrentLanguageName
-{
-
-    NSString *languageName = [[CHATranslationManager sharedManager] currentLanguageName];
+    XCTAssertNoThrow([sut languageName], @"YodaRequest must override required methods");
+    XCTAssertTrue([[sut languageName] isEqualToString:@"YODA"], @"YodaRequest does not return correct language name");
     
-    XCTAssertTrue([languageName isEqualToString:@"YODA"], @"TranslationManager does not return correct languag name");
 }
 
 

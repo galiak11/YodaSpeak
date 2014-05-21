@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "CHATranslationRequest.h"
-#import "CHATranslationManager.h"
+#import "CHAYodaRequest.h"
 #import "CHAViewController.h"
 #import "XCTestCase+AsyncTesting.h"
 
@@ -25,7 +25,7 @@
 // Note: testing for exact translation might make this test too frgile, since we have no control over what the service returns. Instead, we only test that the restult is some string.
 - (void)testTranslationRequestTranslationShouldReturnDifferentText
 {
-    CHATranslationRequest *sut = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageYoda];
+    CHAYodaRequest *sut = [[CHAYodaRequest alloc] init];
     
     NSString *textToTranslate = @"You will learn how to speak like me someday.";
     NSString *translatedText = [sut translate:textToTranslate];
@@ -37,7 +37,7 @@
 
 - (void)testTranslationRequestNonBlockingTranslationShouldReturnDifferentText
 {
-    CHATranslationRequest *sut = [[CHATranslationRequest alloc] initWithLanguage:CHALanguageYoda];
+    CHAYodaRequest *sut = [[CHAYodaRequest alloc] init];
     
     NSString *textToTranslate = @"You will learn how to speak like me someday.";
     
@@ -64,7 +64,7 @@
 
 - (void)testTranslationManagerNonBlockingTranslationShouldReturnDifferentText
 {
-    CHATranslationManager *sut = [CHATranslationManager sharedManager];
+    CHAYodaRequest *sut = [[CHAYodaRequest alloc] init];
     
     NSString *textToTranslate = @"You will learn how to speak like me someday.";
     

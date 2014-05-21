@@ -9,14 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-// list of supported languages
-typedef enum CHALanguages : NSUInteger {
-    CHALanguageYoda,
-    CHALanguageLeet
-} CHALanguages;
-
-extern NSString * const languageNames[];
-
+// translation result block for non-blocking requests.
+// note: we only handle string results, for now...
 typedef void (^CHAStringResultBlock)(NSString* string);
 
 
@@ -24,9 +18,6 @@ typedef void (^CHAStringResultBlock)(NSString* string);
 
 // a string representation of current language
 @property (strong, nonatomic, readonly) NSString *languageName;
-
-// initialize the request with a specific language
-- (id)initWithLanguage:(CHALanguages)language;
 
 // synchronous request to translate text (result is returned as a method return value)
 - (NSString *)translate:(NSString *)text;
@@ -36,3 +27,19 @@ typedef void (^CHAStringResultBlock)(NSString* string);
 - (void)translate:(NSString *)text result:(CHAStringResultBlock)resultBlock;
 
 @end
+
+
+// protected properties - available to subclasses only:
+
+#ifdef BaseClass_protected
+
+@interface CHATranslationRequest ()
+
+@property (strong, nonatomic) NSDictionary *headers;
+@property (strong, nonatomic) NSDictionary *parameters;
+@property (strong, nonatomic) NSString *urlFormat;
+
+
+@end
+
+#endif
