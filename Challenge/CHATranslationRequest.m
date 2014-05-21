@@ -161,15 +161,7 @@
     if (translationResult)
         NSLog(@"Request Error: %@",[response body]);
     
-    NSString *stringResponse = [response body];
-    NSRange range = [stringResponse rangeOfString:@"html"];
-    if (range.location != NSNotFound)
-    {
-        NSLog(@"HTML RESPONSE!!!");
-        NSLog(@"%@", stringResponse);
-    }
-    
-    return translationResult ? nil : stringResponse;
+    return translationResult ? nil : [response body];
 }
 
 @end
